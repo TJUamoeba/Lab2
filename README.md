@@ -7,12 +7,12 @@ Windows Form 实现 MIDI 音乐文件的播放APP #
 1. 创建结构体comStatus，记录一个控件当前规格大小和在窗体的相对位置；
 2. 创建列表compList，记录当前窗体的所有控件的comStatus；
 3. 主窗体大小发生变化时，调用ControlAutoSize方法. 先读取列表内记录的主窗口之前的状态信息，与其当前信息比对，获取窗口大小变化的比例系数；
-
+	
 	float wideScale = (float)mainForm.Width / (float)compList[0].Width;
                 float highScale = (float)mainForm.Height / (float)compList[0].Height;
 
 4. 调用autoResize方法，对窗口内的所有控件根据上一步获得的比例系数和列表内记录的上一次状态信息进行大小和位置的调整.
-
+	
 	subCtrl.Left = (int)((Left0) * wideScale);
                 subCtrl.Top = (int)((Top0) * highScale);
                 subCtrl.Width = (int)(Width0 * wideScale);
